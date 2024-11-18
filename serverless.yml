@@ -1,0 +1,16 @@
+service: video-upload-service
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+
+functions:
+  app:
+    handler: dist/main.handler
+    events:
+      - http:
+          path: /
+          method: get
+
+plugins:
+  - serverless-offline
